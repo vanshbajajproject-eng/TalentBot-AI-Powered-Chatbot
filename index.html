@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HR Services Welcome Page</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#eef2ff,#ffffff);color:#1f2937}
+header{padding:20px 40px;display:flex;justify-content:space-between;align-items:center;background:#111827;color:#fff}
+header h1{font-size:1.5rem}
+nav a{color:#fff;text-decoration:none;margin-left:20px}
+.hero{min-height:90vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:60px 40px;gap:40px}
+.hero-text h2{font-size:3rem;line-height:1.1;margin-bottom:20px}
+.hero-text p{font-size:1.1rem;margin-bottom:25px;color:#4b5563}
+.btn{display:inline-block;padding:14px 24px;background:#2563eb;color:#fff;border:none;border-radius:12px;cursor:pointer;text-decoration:none;font-weight:bold;transition:.3s}
+.btn:hover{transform:translateY(-2px);background:#1d4ed8}
+.card{background:#fff;padding:30px;border-radius:24px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:0 40px 60px}
+.feature{background:#fff;padding:24px;border-radius:20px;box-shadow:0 8px 20px rgba(0,0,0,.06)}
+.feature h3{margin-bottom:10px}
+footer{text-align:center;padding:25px;color:#6b7280}
+.toast{position:fixed;bottom:20px;right:20px;background:#111827;color:#fff;padding:14px 18px;border-radius:12px;display:none}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.features{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<h1>PeopleFirst HR</h1>
+<nav>
+<a href="#services">Services</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+<section class="hero">
+<div class="hero-text">
+<h2>Empowering Your Workforce, Simplifying HR</h2>
+<p>We help businesses hire smarter, manage teams efficiently, and build thriving workplace cultures.</p>
+<a href="#contact" class="btn" id="welcomeBtn">Get Started</a>
+</div>
+<div class="card">
+<h3>Why Choose Us?</h3>
+<p style="margin-top:15px;color:#4b5563;line-height:1.7">Recruitment, payroll, compliance, training, and employee engagement solutions tailored to growing companies.</p>
+<br>
+<ul style="line-height:2;color:#374151">
+<li>✔ Fast Hiring Solutions</li>
+<li>✔ Payroll & Compliance</li>
+<li>✔ HR Consulting</li>
+<li>✔ Employee Retention Strategies</li>
+</ul>
+</div>
+</section>
+<section class="features" id="services">
+<div class="feature">
+<h3>Talent Acquisition</h3>
+<p>Find and hire top talent quickly with our expert recruitment team.</p>
+</div>
+<div class="feature">
+<h3>Payroll Management</h3>
+<p>Accurate payroll processing and legal compliance with zero hassle.</p>
+</div>
+<div class="feature">
+<h3>Employee Development</h3>
+<p>Training programs that improve skills, engagement, and retention.</p>
+</div>
+</section>
+<!-- <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script> -->
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="Welcome"
+  chat-title="TalentBot:AI-Powered-Customer-Support-Chatbot"
+  agent-id="f25f6d8a-5ffb-406e-a9df-c988d951d7d3"
+  language-code="en"
+></df-messenger>
+<footer id="contact">© 2026 PeopleFirst HR Services. All rights reserved.</footer>
+<div class="toast" id="toast">Thanks for visiting! We'll contact you soon.</div>
+<script>
+document.getElementById('welcomeBtn').addEventListener('click',function(e){
+ e.preventDefault();
+ const toast=document.getElementById('toast');
+ toast.style.display='block';
+ setTimeout(()=>toast.style.display='none',3000);
+ document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+});
+</script>
+</body>
+</html>
